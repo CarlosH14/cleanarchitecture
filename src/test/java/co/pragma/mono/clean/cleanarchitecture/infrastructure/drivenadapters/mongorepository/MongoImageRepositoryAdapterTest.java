@@ -7,9 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import org.bson.BsonBinarySubType;
@@ -73,7 +71,7 @@ public class MongoImageRepositoryAdapterTest {
         persona.setImagen(null);
         personaModel.setImagen(null);
         when(jpaRepository.save(persona)).thenReturn(persona);
-        assertEquals(mongoImageRepositoryAdapter.deleteById(1), "Imagen eliminada");
+        assertEquals("Imagen eliminada", mongoImageRepositoryAdapter.deleteById(1));
         assertNotEquals(mongoImageRepositoryAdapter.deleteById(2), "No se pudo eliminar la imagen");
     }
 
